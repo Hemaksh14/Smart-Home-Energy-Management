@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Device Energy Consumption</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        h1{
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            
+        }
+
+        canvas {
+    /* padding: 0; */
+    margin-left: 150px;
+    margin-right: 150px;
+    /* display: block;
+    width:50%; */
+}
+
+
+    </style>
+</head>
+<body>
+    <h1>Device Energy Consumption</h1>
+    <div class="chart-container">
+        <canvas id="energyChart" width="200" height="100" ></canvas>
+    </div>
+    <script>
+        var ctx = document.getElementById('energyChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: {{ model_ids|tojson|safe }},
+                datasets: [
+                    {
+                    label: 'Total Energy',
+                    data: {{ total_energies|tojson|safe }},
+                    backgroundColor: 'rgba(48, 145, 230, 0.2)',
+                    borderColor: 'rgba(48, 145, 230, 1)',
+                    borderWidth: 4
+                }]
+            },
+            options: {
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Model ID'
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Count/Total Energy'
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

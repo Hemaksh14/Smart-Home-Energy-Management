@@ -1,0 +1,236 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        form {
+            max-width: 400px;
+            width: 100%;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-sizing: border-box;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        p {
+            color: red;
+            text-align: center;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Register</h1>
+    {% if error_message %}
+        <p>{{ error_message }}</p>
+    {% endif %}
+    <form method="POST" action="">
+        {{ form.csrf_token }}
+
+        <label for="username">{{ form.username.label }}</label>
+        {{ form.username(class="form-control", placeholder="Enter your username", required=True) }}
+
+        <label for="password">{{ form.password.label }}</label>
+        {{ form.password(class="form-control", placeholder="Enter your password", required=True) }}
+
+
+        <label for="name">{{ form.name.label }}</label>
+        {{ form.name(class="form-control", placeholder="Enter your name") }}
+
+        <label for="billing_address_id">{{ form.billing_address_id.label }}</label>
+        {{ form.billing_address_id(class="form-control", placeholder="Enter your billing address") }}
+
+        <label for="zip_code">{{ form.zip_code.label }}</label>
+        {{ form.zip_code(class="form-control", placeholder="Enter your ZIP code", required=True) }}
+
+        {{ form.submit }}
+    </form>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 400px;
+            background-color: #3091e6;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .container h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #ffffff;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        .form-group input:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+
+        .form-submit {
+            margin-top: 20px;
+        }
+
+        .form-submit button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .form-submit button:hover {
+            background-color: #0056b3;
+        }
+
+        .error-message p {
+            color: red;
+            text-align: center;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Register</h1>
+        {% if error_message %}
+        <div class="error-message">
+            <p>{{ error_message }}</p>
+        </div>
+        {% endif %}
+        <form method="POST" action="">
+            {{ form.csrf_token }}
+
+            <div class="form-group">
+                <label for="username">{{ form.username.label }}</label>
+                {{ form.username(class="form-control", placeholder="Enter your username", required=True) }}
+            </div>
+
+            <div class="form-group">
+                <label for="password">{{ form.password.label }}</label>
+                {{ form.password(class="form-control", placeholder="Enter your password", required=True) }}
+            </div>
+
+            <!-- Add fields for name and billing address -->
+            <div class="form-group">
+                <label for="name">{{ form.name.label }}</label>
+                {{ form.name(class="form-control", placeholder="Enter your name") }}
+            </div>
+
+            <div class="form-group">
+                <label for="billing_address_id">{{ form.billing_address_id.label }}</label>
+                {{ form.billing_address_id(class="form-control", placeholder="Enter your billing address") }}
+            </div>
+
+            <div class="form-group">
+                <label for="zip_code">{{ form.zip_code.label }}</label>
+                {{ form.zip_code(class="form-control", placeholder="Enter your ZIP code", required=True) }}
+            </div>
+
+            <div class="form-submit">
+                {{ form.submit }}
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

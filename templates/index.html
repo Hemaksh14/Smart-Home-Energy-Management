@@ -1,0 +1,130 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        p {
+            margin: 10px 0;
+            text-align: center;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    {% if current_user %}
+        <h1>Welcome, {{ current_user.username }}!</h1>
+        <p>View your profile: <a href="{{ url_for('profile') }}">Profile</a></p>
+        <p>Edit your profile: <a href="{{ url_for('edit_profile') }}">Edit Profile</a></p>
+        <p><a href="{{ url_for('logout') }}">Logout</a></p>
+    {% else %}
+        <h1>Welcome to the Energy Monitoring System!</h1>
+        
+        <p><a href="{{ url_for('register') }}">Register</a></p>
+        <p><a href="{{ url_for('login') }}">Login</a></p>
+    {% endif %}
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #3091e6;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 400px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        .container h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .container p {
+            margin: 10px 0;
+        }
+
+        .container a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .container a:hover {
+            color: #0056b3;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        {% if current_user %}
+        <h1>Welcome, {{ current_user.username }}!</h1>
+        <p>View your profile: <a href="{{ url_for('profile') }}">Profile</a></p>
+        <p>Edit your profile: <a href="{{ url_for('edit_profile') }}">Edit Profile</a></p>
+        <p><a href="{{ url_for('logout') }}">Logout</a></p>
+        {% else %}
+        <h1>Smart Home Energy Management System!</h1>
+        <!-- Your existing content goes here -->
+        <p><a href="{{ url_for('register') }}">Register</a></p>
+        <p><a href="{{ url_for('login') }}">Login</a></p>
+        {% endif %}
+    </div>
+</body>
+
+</html>
